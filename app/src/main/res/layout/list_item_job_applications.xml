@@ -1,0 +1,47 @@
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FieldCompany"
+            android:layout_alignParentLeft="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FieldPosition"
+            android:layout_below="@id/FieldCompany"
+            android:layout_alignLeft="@id/FieldCompany"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FieldListedDate"
+            android:layout_toLeftOf="@id/ChecInterview"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FieldAppliedDate"
+            android:layout_below="@id/FieldListedDate"
+            android:layout_alignRight="@id/FieldListedDate"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ChecInterview"
+            android:layout_alignParentRight="true"/>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/separator"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

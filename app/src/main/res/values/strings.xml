@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Career Networking Assistant</string>
+    <string name="title_activity_edit_job_main">Edit Job Application</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_Add_Job">+ New Job Application</string>
+    <string name="btn_Add_Contact">+ New Network Contact</string>
+    <string name="btn_Find_Contact">+ Existing Contact</string>
+    <string name="btn_View_Edit">View or Edit a record</string>
+    <string name="btn_User_Profile">View or Edit User Profile</string>
+
+
+    <string name="txt_Congratulations">Congratulations! Keep up the good work!</string>
+    <string name="txt_Company">Company Name:</string>
+    <string name="txt_Position">Position Title:</string>
+    <string name="txt_CityLocation">City:</string>
+    <string name="txt_StateLocation">State:</string>
+    <string name="txt_Contact">Known Contact:</string>
+    <string name="txt_Interview">Interview?</string>
+    <string name="txt_ListedDate">Listing Date:</string>
+    <string name="txt_AppliedDate">Date Applied:</string>
+    <string name="txt_JobDiscovered">Where did you apply to this position?</string>
+
+    <string name="edt_Company">The Dream Company</string>
+    <string name="edt_Position">Director Of Awesomeness</string>
+    <string name="edt_Contact">John Doe</string>
+    <string name="edt_CityLocation">Chicago</string>
+    <string name="edt_StateLocation">IL</string>
+
+    <string-array name="spin_JobDiscoveryHome">
+        <item>Company Website</item>
+        <item>Paper Application</item>
+        <item>Staffing Agency</item>
+        <item>Job Board Website</item>
+        <item>Custom</item>
+    </string-array>
+    <string name="title_activity_application_list">ApplicationListActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+</resources>
