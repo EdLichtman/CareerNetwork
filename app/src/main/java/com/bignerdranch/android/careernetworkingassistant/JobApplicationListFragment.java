@@ -88,7 +88,7 @@ public class JobApplicationListFragment extends Fragment {
         }
         @Override
         public void onClick(View v) {
-            Intent intent =  JobApplicationActivity.newIntent(
+            Intent intent =  JobApplicationPagerActivity.newIntent(
                     getActivity(), mJobApplication.getId());
             startActivity(intent);
         }

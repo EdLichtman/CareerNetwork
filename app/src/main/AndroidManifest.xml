@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JobApplicationActivity"
+            android:name=".JobApplicationPagerActivity"
             android:label="@string/title_activity_edit_job_main" >
         </activity>
         <activity
