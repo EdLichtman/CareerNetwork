@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         @Override public void onClick(View v) {
             Class changeClass = this.getClass();
             if (v == btnAddJob) {
-                changeClass = JobApplicationActivity.class;
+                changeClass = JobApplicationPagerActivity.class;
             }
             if (v == btnViewEdit) {
                 changeClass = JobApplicationsListActivity.class;
