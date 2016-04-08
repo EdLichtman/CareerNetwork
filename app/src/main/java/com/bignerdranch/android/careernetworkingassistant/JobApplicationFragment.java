@@ -1,7 +1,10 @@
 package com.bignerdranch.android.careernetworkingassistant;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -21,6 +25,12 @@ import java.util.UUID;
 public class JobApplicationFragment extends Fragment {
 
     private static final String ARG_JOB_APP_ID = "job_application_id";
+    private static final String DIALOG_DATE = "DialogDate";
+
+    private static final int REQUEST_DATE = 0;
+
+    private static final int DATE_APPLIED = R.string.txt_AppliedDate;
+    private static final int DATE_LISTED = R.string.txt_ListedDate;
 
     private JobApplication mJobApplication;
     private EditText mCompanyName;
@@ -100,20 +110,30 @@ public class JobApplicationFragment extends Fragment {
 
         //Set ListedDate
         mListedDate = (Button) v.findViewById(R.id.EditListedDate);
-        if (mJobApplication.getListedDate() == null) {
-            mListedDate.setText(DMTools.FormatDate(DMTools.TODAY_DATE));
-        } else {
-            mListedDate.setText(DMTools.FormatDate(mJobApplication.getListedDate()));
-        }
+        mListedDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+        public void onClick(View v) {
+            FragmentManager manager = getFragmentManager();
+            DatePickerFragment dialog = DatePickerFragment.newInstance(
+                    mJobApplication.getListedDate(), DATE_LISTED);
+                dialog.setTargetFragment(JobApplicationFragment.this, REQUEST_DATE);
+            dialog.show(manager, DIALOG_DATE);
+            }
+        });
 
 
         //Set AppliedDate
         mAppliedDate = (Button) v.findViewById(R.id.EditAppliedDate);
-        if (mJobApplication.getAppliedDate() == null) {
-            mAppliedDate.setText(DMTools.FormatDate(DMTools.TODAY_DATE));
-        } else {
-            mAppliedDate.setText(DMTools.FormatDate(mJobApplication.getAppliedDate()));
-        }
+        mAppliedDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                DatePickerFragment dialog = DatePickerFragment.newInstance(
+                        mJobApplication.getAppliedDate(), DATE_APPLIED);
+                dialog.setTargetFragment(JobApplicationFragment.this, REQUEST_DATE);
+                dialog.show(manager, DIALOG_DATE);
+            }
+        });
 
 
         //Set Interview
@@ -131,6 +151,7 @@ public class JobApplicationFragment extends Fragment {
 
         });
 
+        updateDates();
         SaveButton = (Button) v.findViewById(R.id.butnSave);
         SaveButton.bringToFront();
         SaveButton.setEnabled(false);
@@ -174,6 +195,38 @@ public class JobApplicationFragment extends Fragment {
         public void afterTextChanged(Editable editable) {
 
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_DATE) {
+            Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            int dateName = (int) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE_NAME);
+            if (dateName == DATE_LISTED) {
+                mJobApplication.setListedDate(date);
+            } else if (dateName == DATE_APPLIED) {
+                mJobApplication.setAppliedDate(date);
+            }
+            updateDates();
+        }
+    }
+
+    private void updateDates() {
+        if (mJobApplication.getListedDate() == null) {
+            mListedDate.setText(DMTools.FormatDate(DMTools.TODAY_DATE));
+        } else {
+            mListedDate.setText(DMTools.FormatDate(mJobApplication.getListedDate()));
+        }
+        if (mJobApplication.getAppliedDate() == null) {
+            mAppliedDate.setText(DMTools.FormatDate(DMTools.TODAY_DATE));
+        } else {
+            mAppliedDate.setText(DMTools.FormatDate(mJobApplication.getAppliedDate()));
+        }
+
     }
 
 }
