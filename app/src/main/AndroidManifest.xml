@@ -17,12 +17,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JobApplicationPagerActivity"
-            android:label="@string/title_activity_edit_job_main" >
-        </activity>
-        <activity
             android:name=".JobApplicationsListActivity"
             android:label="@string/title_activity_application_list">
+        </activity>
+        <activity
+            android:name=".JobApplicationPagerActivity"
+            android:label="@string/title_activity_edit_job_main"
+            android:parentActivityName="JobApplicationsListActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
     </application>
 

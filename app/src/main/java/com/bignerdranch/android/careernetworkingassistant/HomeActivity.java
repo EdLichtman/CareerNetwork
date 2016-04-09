@@ -1,14 +1,14 @@
 package com.bignerdranch.android.careernetworkingassistant;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends FragmentActivity {
 
     private Button btnAddJob;
     private Button btnAddContact;
@@ -62,7 +62,10 @@ public class HomeActivity extends AppCompatActivity {
         @Override public void onClick(View v) {
             Class changeClass = this.getClass();
             if (v == btnAddJob) {
-                changeClass = JobApplicationPagerActivity.class;
+                JobApplication newApplication = new JobApplication();
+                Intent intent = JobApplicationPagerActivity.
+                        newIntent(getApplicationContext(), newApplication.getId());
+                startActivity(intent);
             }
             if (v == btnViewEdit) {
                 changeClass = JobApplicationsListActivity.class;
