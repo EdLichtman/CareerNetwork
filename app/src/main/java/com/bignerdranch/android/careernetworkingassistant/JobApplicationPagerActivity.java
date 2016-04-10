@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,10 +15,14 @@ import java.util.UUID;
 /**
  * Created by EdwardLichtman on 4/4/16.
  */
-public class JobApplicationPagerActivity extends FragmentActivity {
+public class JobApplicationPagerActivity extends AppCompatActivity {
 
     private static final String EXTRA_APP_ID =
             "com.bignerdranch.android.criminalintent.crime_id";
+    private static final String EXTRA_APP_IS_NEW =
+            "com.bignerdranch.android.criminalintent.isNewJobApplication";
+
+    private static final int REQUEST_BACK = 0;
 
     private ViewPager mViewPager;
     private List<JobApplication> mJobApplications;
@@ -26,6 +30,12 @@ public class JobApplicationPagerActivity extends FragmentActivity {
     public static Intent newIntent(Context packageContext, UUID jobApplicationId) {
         Intent intent = new Intent(packageContext, JobApplicationPagerActivity.class);
         intent.putExtra(EXTRA_APP_ID, jobApplicationId);
+        return intent;
+    }
+    public static Intent newIntent(Context packageContext, UUID jobApplicationId, boolean isNewApplication) {
+        Intent intent = new Intent(packageContext, JobApplicationPagerActivity.class);
+        intent.putExtra(EXTRA_APP_ID, jobApplicationId);
+        intent.putExtra(EXTRA_APP_IS_NEW, isNewApplication);
         return intent;
     }
 
@@ -37,15 +47,23 @@ public class JobApplicationPagerActivity extends FragmentActivity {
         UUID jobApplicationId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_APP_ID);
 
+        boolean isNewApplication = false;
+        if (getIntent()
+                .getSerializableExtra(EXTRA_APP_IS_NEW) != null) {
+              isNewApplication = (boolean) getIntent()
+                    .getSerializableExtra(EXTRA_APP_IS_NEW);
+        }
+
         mViewPager = (ViewPager) findViewById(R.id.activity_pager_view_pager);
 
         mJobApplications = JobApplicationList.get(this).getJobApplications();
         FragmentManager fragmentManager = getSupportFragmentManager();
+        final boolean finalIsNewApplication = isNewApplication;
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int position) {
                 JobApplication application = mJobApplications.get(position);
-                return JobApplicationFragment.newInstance(application.getId());
+                return JobApplicationFragment.newInstance(application.getId(), finalIsNewApplication);
             }
 
             @Override

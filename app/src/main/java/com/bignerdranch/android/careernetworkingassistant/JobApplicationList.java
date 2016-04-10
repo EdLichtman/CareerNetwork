@@ -22,7 +22,7 @@ public class JobApplicationList {
 
     private JobApplicationList(Context context) {
         mJobApplications = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 0; i++) {
             JobApplication jobApplication = new JobApplication();
             switch (i%4) {
                 case 0:
@@ -73,6 +73,15 @@ public class JobApplicationList {
 
         }
     }
+
+    public void addJobApplication(JobApplication j) {
+        mJobApplications.add(j);
+    }
+
+    public void deleteJobApplication(JobApplication j) {
+        mJobApplications.remove(j);
+    }
+
     public List<JobApplication> getJobApplications() {
         return mJobApplications;
     }

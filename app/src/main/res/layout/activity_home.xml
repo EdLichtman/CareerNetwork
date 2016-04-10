@@ -14,6 +14,7 @@
         android:padding="24dp"
         android:textSize="4mm"
         android:onClick="ExternalOnClickListener"
+        android:visibility="gone"
         />
     <Button
         android:id="@+id/AddContact"

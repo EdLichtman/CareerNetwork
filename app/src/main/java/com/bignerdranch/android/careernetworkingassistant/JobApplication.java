@@ -23,6 +23,15 @@ public class JobApplication {
     public JobApplication() {
         //Generate unique identifier
         mId = UUID.randomUUID();
+        mCompanyName = "";
+        mPositionTitle = "";
+        mCity = "";
+        mState = "";
+        mContactName = "";
+        mWhereYouApply = "";
+        mListedDate = DMTools.TODAY_DATE;
+        mAppliedDate = DMTools.TODAY_DATE;
+        mInterviewOrganized = false;
     }
 
     public UUID getId() {

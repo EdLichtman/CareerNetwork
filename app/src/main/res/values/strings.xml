@@ -35,6 +35,15 @@
         <item>Custom</item>
     </string-array>
     <string name="title_activity_application_list">ApplicationListActivity</string>
-
+    <string name="add_application">Add Record</string>
+    <string name="delete_application">Delete Record</string>
+    <string name="delete_application_certain">
+        Are you sure you would like to delete this record?</string>
+    <string name="edit_application">Edit Record</string>
+    <string name="save_application">Save Record</string>
+    <string name="save_application_certain">
+        Are you sure you would like to save this record?</string>
+    <string name="back_application_certain">
+        Are you sure you would like to exit this record?</string>
     <string name="hello_world">Hello world!</string>
 </resources>

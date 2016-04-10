@@ -8,10 +8,11 @@ import java.util.Date;
  */
 public class DMTools {
     public static final Date TODAY_DATE = Calendar.getInstance().getTime();
+    private static String mDateFormat = "MMM dd, yyyy";
 
-    public static CharSequence FormatDate(Date date) {
-        String mDateFormat = "MMM dd, yyyy";
-        return android.text.format.DateFormat.format(mDateFormat, date);
+    public static String formatDateTime(Date dateOrNull) {
+        return (dateOrNull == null ? "" : (String)
+                android.text.format.DateFormat.format(mDateFormat, dateOrNull));
     }
 
 }
