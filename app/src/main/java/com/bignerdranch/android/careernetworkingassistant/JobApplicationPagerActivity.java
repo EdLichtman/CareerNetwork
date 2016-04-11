@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.List;
 import java.util.UUID;
 
+import database.JobApplicationListDB;
+
 /**
  * Created by EdwardLichtman on 4/4/16.
  */
@@ -56,7 +58,7 @@ public class JobApplicationPagerActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.activity_pager_view_pager);
 
-        mJobApplications = JobApplicationList.get(this).getJobApplications();
+        mJobApplications = JobApplicationListDB.get(this).getJobApplications();
         FragmentManager fragmentManager = getSupportFragmentManager();
         final boolean finalIsNewApplication = isNewApplication;
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {

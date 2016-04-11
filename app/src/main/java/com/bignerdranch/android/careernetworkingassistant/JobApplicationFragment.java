@@ -21,6 +21,8 @@ import android.widget.EditText;
 import java.util.Date;
 import java.util.UUID;
 
+import database.JobApplicationListDB;
+
 /**
  * Created by edwardlichtman on 10/7/15.
  */
@@ -82,7 +84,7 @@ public class JobApplicationFragment extends Fragment {
         }
 
         if (applicationId != null) {
-            mJobApplication = JobApplicationList.get(getActivity()).getJobApplication(applicationId);
+            mJobApplication = JobApplicationListDB.get(getActivity()).getJobApplication(applicationId);
         } else {
             mJobApplication = new JobApplication();
         }
@@ -98,6 +100,13 @@ public class JobApplicationFragment extends Fragment {
         setFieldListeners();
 
         return v;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        JobApplicationListDB.get(getActivity())
+                .updateJobApplication(mJobApplication);
     }
 
     @Override
@@ -283,7 +292,7 @@ public class JobApplicationFragment extends Fragment {
             }
             updateDates();
         } else if (requestCode == REQUEST_DELETE) {
-            JobApplicationList.get(getActivity()).deleteJobApplication(mJobApplication);
+            JobApplicationListDB.get(getActivity()).deleteJobApplication(mJobApplication);
             getActivity().finish();
         } else if (requestCode == REQUEST_SAVE) {
             getActivity().finish();

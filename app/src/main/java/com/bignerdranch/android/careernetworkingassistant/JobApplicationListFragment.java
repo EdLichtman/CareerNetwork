@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import database.JobApplicationListDB;
+
 /**
  * Created by edwardlichtman on 10/9/15.
  */
@@ -55,7 +57,7 @@ public class JobApplicationListFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_item_add_application:
                 JobApplication newApplication = new JobApplication();
-                JobApplicationList jobApplicationList = JobApplicationList.get(getContext());
+                JobApplicationListDB jobApplicationList = JobApplicationListDB.get(getContext());
                 jobApplicationList.addJobApplication(newApplication);
                 Intent intent =
                         JobApplicationPagerActivity.
@@ -74,13 +76,14 @@ public class JobApplicationListFragment extends Fragment {
     }
 
     private void updateUI() {
-        JobApplicationList applicationList = JobApplicationList.get(getActivity());
+        JobApplicationListDB applicationList = JobApplicationListDB.get(getActivity());
         List<JobApplication> jobApplications = applicationList.getJobApplications();
 
         if (mAdapter == null) {
             mAdapter = new ApplicationAdapter(jobApplications);
             mApplicationRecyclerView.setAdapter(mAdapter);
         } else {
+            mAdapter.setJobApplications(jobApplications);
             mAdapter.notifyDataSetChanged();
         }
 
@@ -110,7 +113,7 @@ public class JobApplicationListFragment extends Fragment {
                 @Override
                 public boolean onLongClick(View v) {
 
-                    JobApplicationList.get(getActivity()).deleteJobApplication(mJobApplication);
+                    JobApplicationListDB.get(getActivity()).deleteJobApplication(mJobApplication);
                     updateUI();
                     return true;
                 }
@@ -164,6 +167,9 @@ public class JobApplicationListFragment extends Fragment {
             return mJobApplications.size();
         }
 
+        public void setJobApplications(List<JobApplication> jobApplications) {
+            mJobApplications = jobApplications;
+        }
 
     }
 

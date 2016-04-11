@@ -15,20 +15,22 @@ public class JobApplication {
     private String mCity;
     private String mState;
     private String mContactName;
-    private String mWhereYouApply;
     private Date mListedDate;
     private Date mAppliedDate;
     private Boolean mInterviewOrganized;
 
     public JobApplication() {
         //Generate unique identifier
-        mId = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public JobApplication(UUID id) {
+        mId = id;
         mCompanyName = "";
         mPositionTitle = "";
         mCity = "";
         mState = "";
         mContactName = "";
-        mWhereYouApply = "";
         mListedDate = DMTools.TODAY_DATE;
         mAppliedDate = DMTools.TODAY_DATE;
         mInterviewOrganized = false;
@@ -76,14 +78,6 @@ public class JobApplication {
 
     public void setContactName(String contactName) {
         mContactName = contactName;
-    }
-
-    public String getWhereYouApply() {
-        return mWhereYouApply;
-    }
-
-    public void setWhereYouApply(String whereYouApply) {
-        mWhereYouApply = whereYouApply;
     }
 
     public Date getListedDate() {
