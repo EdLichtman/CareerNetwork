@@ -26,6 +26,7 @@ public class JobDBHelper extends SQLiteOpenHelper {
         execSql.append(JobApplicationTable.Cols.strUUID + ", ");
         execSql.append(JobApplicationTable.Cols.strCOMPANY_NAME + ", ");
         execSql.append(JobApplicationTable.Cols.strPOSITION_TITLE + ", ");
+        execSql.append(JobApplicationTable.Cols.strCONTACT_NAME + ", ");
         execSql.append(JobApplicationTable.Cols.blnINTERVIEW + ", ");
         execSql.append(JobApplicationTable.Cols.strCITY + ", ");
         execSql.append(JobApplicationTable.Cols.strSTATE + ", ");

@@ -23,6 +23,7 @@ public class JobApplicationCursorWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(JobApplicationTable.Cols.strUUID));
         String companyName = getString(getColumnIndex(JobApplicationTable.Cols.strCOMPANY_NAME));
         String positionTitle = getString(getColumnIndex(JobApplicationTable.Cols.strPOSITION_TITLE));
+        String contactName = getString(getColumnIndex(JobApplicationTable.Cols.strCONTACT_NAME));
         int interviewOrganized = getInt(getColumnIndex(JobApplicationTable.Cols.blnINTERVIEW));
         String city = getString(getColumnIndex(JobApplicationTable.Cols.strCITY));
         String state = getString(getColumnIndex(JobApplicationTable.Cols.strSTATE));
@@ -32,6 +33,7 @@ public class JobApplicationCursorWrapper extends CursorWrapper {
         JobApplication application = new JobApplication(UUID.fromString(uuidString));
         application.setCompanyName(companyName);
         application.setPositionTitle(positionTitle);
+        application.setContactName(contactName);
         application.setInterviewOrganized(interviewOrganized != 0);
         application.setCity(city);
         application.setState(state);

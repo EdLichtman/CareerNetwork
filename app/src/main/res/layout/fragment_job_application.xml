@@ -245,6 +245,12 @@
         </RelativeLayout>
 
     </ScrollView>
+        <Button
+            android:id="@+id/send_followup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_followup_send"
+            android:layout_gravity="bottom|right"/>
 
     </FrameLayout>
 
