@@ -51,6 +51,8 @@ public class JobApplicationFragment extends Fragment {
     private Button mAppliedDate;
     private CheckBox mInterviewOrganized;
 
+    private Button mFollowUp;
+
     private boolean mIsLocked;
 
     public static JobApplicationFragment newInstance(UUID jobApplicationId) {
@@ -172,6 +174,8 @@ public class JobApplicationFragment extends Fragment {
             mInterviewOrganized.setChecked(mJobApplication.getInterviewOrganized());
         }
 
+        mFollowUp = (Button) v.findViewById(R.id.send_followup);
+
         updateDates();
 
     }
@@ -224,6 +228,21 @@ public class JobApplicationFragment extends Fragment {
                 mJobApplication.setInterviewOrganized(isChecked);
             }
 
+        });
+
+        //Set FollowupListener
+        mFollowUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, createFollowupEmail());
+                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_followup_subject));
+
+                startActivity(i);
+
+
+            }
         });
     }
 
@@ -299,6 +318,18 @@ public class JobApplicationFragment extends Fragment {
         }
 
 
+    }
+
+    private String createFollowupEmail() {
+        StringBuilder builder = new StringBuilder(getString(R.string.email_followup_address_line,
+                mJobApplication.getContactName()) + "\n")
+                .append(getString(R.string.email_followup_body,
+                        mJobApplication.getPositionTitle(),
+                        mJobApplication.getCompanyName(),
+                        DMTools.formatDateTime(mJobApplication.getAppliedDate()),
+                        "\n") + "\n\n")
+                .append(getString(R.string.email_followup_closing));
+        return builder.toString();
     }
 
     private class genericTextWatcher implements TextWatcher{

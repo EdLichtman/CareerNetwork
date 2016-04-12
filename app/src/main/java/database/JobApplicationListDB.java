@@ -111,6 +111,7 @@ public class JobApplicationListDB {
             values.put(JobApplicationTable.Cols.strUUID, jobApplication.getId().toString());
             values.put(JobApplicationTable.Cols.strCOMPANY_NAME, jobApplication.getCompanyName());
             values.put(JobApplicationTable.Cols.strPOSITION_TITLE, jobApplication.getPositionTitle());
+            values.put(JobApplicationTable.Cols.strCONTACT_NAME, jobApplication.getContactName());
             values.put(JobApplicationTable.Cols.blnINTERVIEW,
                     jobApplication.getInterviewOrganized() ? 1 : 0);
             values.put(JobApplicationTable.Cols.strCITY, jobApplication.getCity());
