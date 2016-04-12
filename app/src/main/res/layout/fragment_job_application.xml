@@ -1,0 +1,257 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/job_application_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    <ScrollView
+        android:id="@+id/ScrlViewCompany"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="true"
+
+        >
+
+        <RelativeLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/Congrats"
+                android:text="@string/txt_Congratulations"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="5mm"
+                android:gravity="center_horizontal"
+                android:padding="24dp"
+                />
+
+            <TextView
+                android:id="@+id/FieldCompany"
+                android:text="@string/txt_Company"
+
+                android:layout_below="@+id/Congrats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <EditText
+                android:id="@+id/EditCompany"
+                android:hint="@string/edt_Company"
+
+                android:layout_below="@+id/FieldCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@+id/EditPosition"
+                />
+
+            <TextView
+
+                android:id="@+id/FieldPosition"
+                android:text="@string/txt_Position"
+
+                android:layout_below="@+id/EditCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <EditText
+                android:id="@+id/EditPosition"
+                android:hint="@string/edt_Position"
+
+                android:layout_below="@+id/FieldPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@+id/EditCityLocation"
+                />
+
+
+            <TextView
+                android:id="@+id/FieldCityLocation"
+                android:text="@string/txt_CityLocation"
+
+                android:layout_below="@+id/EditPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <EditText
+                android:id="@+id/EditCityLocation"
+                android:hint="@string/edt_CityLocation"
+
+                android:layout_below="@+id/FieldCityLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@+id/EditStateLocation"
+                />
+
+                <TextView
+                    android:id="@+id/FieldInterview"
+                    android:text="@string/txt_Interview"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/EditCompany"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4mm"
+                    android:textSize="3mm"
+
+                    />
+                <CheckBox
+                    android:id="@+id/ChecInterview"
+
+                    android:layout_below="@+id/FieldInterview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4mm"
+                    android:checked="true"
+                    />
+
+
+                <TextView
+                    android:id="@+id/FieldStateLocation"
+                    android:text="@string/txt_StateLocation"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/EditPosition"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4mm"
+                    android:textSize="3mm"
+
+                    />
+
+                <EditText
+                    android:id="@+id/EditStateLocation"
+                    android:hint="@string/edt_StateLocation"
+
+                    android:layout_below="@+id/FieldStateLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4mm"
+                    android:inputType="textCapCharacters"
+                    android:nextFocusDown="@+id/EditContact"
+                    />
+            <TextView
+                android:id="@+id/FieldContact"
+                android:text="@string/txt_Contact"
+
+                android:layout_below="@+id/EditCityLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <EditText
+                android:id="@+id/EditContact"
+                android:hint="@string/edt_Contact"
+
+                android:layout_below="@+id/FieldContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@+id/EditListedDate"
+
+                />
+            <TextView
+                android:id="@+id/FieldListedDate"
+                android:text="@string/txt_ListedDate"
+
+                android:layout_below="@+id/EditContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <Button
+                android:id="@+id/EditListedDate"
+
+                android:layout_below="@+id/FieldListedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:singleLine="true"
+                android:nextFocusDown="@+id/EditAppliedDate"
+                />
+            <TextView
+                android:id="@+id/FieldAppliedDate"
+                android:text="@string/txt_AppliedDate"
+
+                android:layout_below="@+id/EditListedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="3mm"
+                />
+
+            <Button
+                android:id="@+id/EditAppliedDate"
+
+                android:layout_below="@+id/FieldAppliedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:singleLine="true"
+
+                />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="10mm"
+                android:layout_below="@id/EditAppliedDate"
+                />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+        <Button
+            android:id="@+id/send_followup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_followup_send"
+            android:layout_gravity="bottom|right"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

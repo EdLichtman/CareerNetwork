@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Career Networking Assistant</string>
+    <string name="title_activity_edit_job_main">Edit Job Application</string>
+    <string name="title_activity_edit_profile">Edit Profile</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_Add_Job">+ New Job Application</string>
+    <string name="btn_Add_Contact">+ New Network Contact</string>
+    <string name="btn_Find_Contact">+ Existing Contact</string>
+    <string name="btn_View_Edit">View or Edit a record</string>
+    <string name="btn_User_Profile">View or Edit User Profile</string>
+
+
+    <string name="txt_Congratulations">Congratulations! Keep up the good work!</string>
+    <string name="txt_Company">Company Name:</string>
+    <string name="txt_Position">Position Title:</string>
+    <string name="txt_CityLocation">City:</string>
+    <string name="txt_StateLocation">State:</string>
+    <string name="txt_Contact">Known Contact:</string>
+    <string name="txt_Interview">Interview?</string>
+    <string name="txt_ListedDate">Listing Date:</string>
+    <string name="txt_AppliedDate">Date Applied:</string>
+    <string name="txt_JobDiscovered">Where did you apply to this position?</string>
+
+    <string name="edt_Company">The Dream Company</string>
+    <string name="edt_Position">Director Of Awesomeness</string>
+    <string name="edt_Contact">John Doe</string>
+    <string name="edt_CityLocation">Chicago</string>
+    <string name="edt_StateLocation">IL</string>
+
+    <string-array name="spin_JobDiscoveryHome">
+        <item>Company Website</item>
+        <item>Paper Application</item>
+        <item>Staffing Agency</item>
+        <item>Job Board Website</item>
+        <item>Custom</item>
+    </string-array>
+    <string name="title_activity_application_list">ApplicationListActivity</string>
+    <string name="add_application">Add Record</string>
+    <string name="delete_application">Delete Record</string>
+    <string name="delete_application_certain">
+        Are you sure you would like to delete this record?</string>
+    <string name="edit_application">Edit Record</string>
+    <string name="save_application">Save Record</string>
+    <string name="save_application_certain">
+        Are you sure you would like to save this record?</string>
+    <string name="back_application_certain">
+        Are you sure you would like to exit this record?</string>
+    <string name="email_followup_create_discussion">Please type in something memorable
+        about meeting %s</string>
+    <string name="email_followup_send">Send Follow-up</string>
+    <string name="email_followup_subject">It was a pleasure meeting you!</string>
+    <string name="email_followup_address_line">Dear %s,\n</string>
+    <string name="email_followup_body">It was a pleasure meeting you the other day!
+    I really enjoyed talking with you about _______. I was glad to hear about the %1$s
+        position that %2$s is looking for. I\'ve already applied for the position, on %3$s!
+        %4$s%4$s
+        I hope to see you soon for an interview!
+    </string>
+    <string name="email_followup_closing">Sincerely,</string>
+
+</resources>

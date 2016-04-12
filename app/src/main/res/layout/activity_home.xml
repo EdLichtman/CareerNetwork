@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+    >
+
+
+    <Button
+        android:id="@+id/AddJob"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_Add_Job"
+        android:padding="24dp"
+        android:textSize="4mm"
+        android:onClick="ExternalOnClickListener"
+        android:visibility="gone"
+        />
+    <Button
+        android:id="@+id/AddContact"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_Add_Contact"
+        android:padding="24dp"
+        android:textSize="4mm"
+        android:onClick="ExternalOnClickListener"
+        android:visibility="gone"
+        />
+    <Button
+        android:id="@+id/FindContact"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_Find_Contact"
+        android:padding="24dp"
+        android:textSize="4mm"
+        android:onClick="ExternalOnClickListener"
+        android:visibility="gone"
+        />
+    <Button
+        android:id="@+id/ViewEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_View_Edit"
+        android:padding="24dp"
+        android:textSize="4mm"
+        android:onClick="ExternalOnClickListener"
+        />
+    <Button
+        android:id="@+id/UserProfile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_User_Profile"
+        android:padding="24dp"
+        android:textSize="4mm"
+        android:onClick="ExternalOnClickListener"
+        android:visibility="visible"
+        />
+
+
+</LinearLayout>
