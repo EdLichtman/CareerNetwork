@@ -53,7 +53,7 @@
         android:padding="24dp"
         android:textSize="4mm"
         android:onClick="ExternalOnClickListener"
-        android:visibility="gone"
+        android:visibility="visible"
         />
 
 

@@ -61,14 +61,11 @@ public class HomeActivity extends FragmentActivity {
 
         @Override public void onClick(View v) {
             Class changeClass = this.getClass();
-            if (v == btnAddJob) {
-                JobApplication newApplication = new JobApplication();
-                Intent intent = JobApplicationPagerActivity.
-                        newIntent(getApplicationContext(), newApplication.getId());
-                startActivity(intent);
-            }
             if (v == btnViewEdit) {
                 changeClass = JobApplicationsListActivity.class;
+            }
+            if (v == btnProfile) {
+                changeClass = JobApplicationsProfileActivity.class;
             }
             Intent intent = new Intent(HomeActivity.this, changeClass);
             startActivity(intent);
