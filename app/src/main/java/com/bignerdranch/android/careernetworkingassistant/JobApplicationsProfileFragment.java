@@ -85,6 +85,8 @@ public class JobApplicationsProfileFragment extends Fragment {
             mPhotoView.setImageDrawable(null);
         } else {
             Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
+            bitmap = PictureUtils.rotate(bitmap, PictureUtils.Rotation.COUNTER_CLOCKWISE);
+            bitmap = PictureUtils.flip(bitmap, PictureUtils.Direction.HORIZONTAL);
             mPhotoView.setImageBitmap(bitmap);
         }
     }

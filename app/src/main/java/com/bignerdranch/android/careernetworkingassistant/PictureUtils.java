@@ -3,11 +3,13 @@ package com.bignerdranch.android.careernetworkingassistant;
 /**
  * Created by EdwardLichtman on 4/11/16.
  */
-        import android.app.Activity;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.graphics.Point;
-        import android.view.View;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Point;
+import android.view.View;
 
 
 public class PictureUtils {
@@ -48,4 +50,34 @@ public class PictureUtils {
     {
         return getScaledBitmap(path, container.getWidth(), container.getHeight());
     }
+
+    public static Bitmap flip(Bitmap src, Direction type) {
+        Matrix matrix = new Matrix();
+
+        if(type == Direction.VERTICAL) {
+            matrix.preScale(1.0f, -1.0f);
+        }
+        else if(type == Direction.HORIZONTAL) {
+            matrix.preScale(-1.0f, 1.0f);
+        } else {
+            return src;
+        }
+
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
+    }
+
+    public static Bitmap rotate(Bitmap src, Rotation direction) {
+        Matrix matrix = new Matrix();
+        int rotation = 90;
+        if (direction == Rotation.COUNTER_CLOCKWISE) {
+            rotation *= -1;
+        }
+
+        matrix.postRotate(rotation);
+
+        return Bitmap.createBitmap(src , 0, 0, src .getWidth(), src .getHeight(), matrix, true);
+    }
+
+    public enum Direction { VERTICAL, HORIZONTAL };
+    public enum Rotation { CLOCKWISE, COUNTER_CLOCKWISE };
 }
